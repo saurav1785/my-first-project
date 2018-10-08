@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>News ME</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style>
+    body{
+        background-color:black;
+    }
+    .size{
+        font-size: 12vh;
+        color:white;
+    }
+    .size2{
+        font-size:4vh;
+        color:white;
+        margin-top:-20px;
+    }
+
+</style>
+<body>
+<div class="container-fluid">
+    <div class="container" style="background-color:grey; margin-top:150px;">
+        <p class="text-center size">NewsME</p>
+        <p class="text-center size2">Find any current news easily!!</p>
+        <div class="container" style="width: 33vw;">
+            <div class="row" style="margin-top: 10px;">
+                <form action="http://localhost:5000/search_result" method="POST">
+                    <input type="text" class="form-control" name="news_search" placeholder="www.example.com">
+                    <div class="text-center"><button class="w3-margin-top btn-warning btn btn-primary btn-sx" type="submit"><span class="glyphicon glyphicon-search"></span>Submit</button></div>
+                </form>
+            </div>
+        </div>
+        {% block content %}
+            {% for  i  in text %}
+                <div class="container" style="width:80vw;">
+                    <div class="card" style="background-color:white">
+                        <div class="card-body">
+                            <p class="card-text">{{ i }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock content %}
+    </div>
+</div>
+</body>
+</html>
+
